@@ -4,7 +4,7 @@ FROM ubuntu:16.10
 RUN apt-get update && \
     apt-get install -y curl bzip2 git libfontconfig && \
     apt-get install -y bcrypt make python g++ && \
-    apt-get clean autoclean
+    rm -rf /var/lib/apt/lists/*
 
 # Add a user and a group called meteor
 RUN groupadd meteor && adduser --ingroup meteor --disabled-password --gecos "" --home /home/meteor meteor
