@@ -17,4 +17,8 @@ RUN curl  https://install.meteor.com/ 2>/dev/null | sed 's/^RELEASE/#RELEASE/'| 
 USER root
 RUN ln -s /home/meteor/.meteor/meteor /usr/local/bin/
 
+# Set locale (needed to start MongoDB)
+RUN locale-gen en_US.UTF-8
+RUN export LC_ALL=en_US.UTF-8
+
 USER meteor
